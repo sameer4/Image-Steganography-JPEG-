@@ -1,0 +1,70 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Luqman"
+        xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="Luqman.MainWindow"
+        mc:Ignorable="d"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="Steganography" Height="518.434" Width="525" Foreground="White"
+        ResizeMode="CanMinimize"
+        ShowMaxRestoreButton="False"
+        GlowBrush="Teal"
+        BorderThickness="1"
+        WindowStartupLocation="CenterScreen">
+    
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="about" Content="About!"  Click="about_Click"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+       
+        <TabControl x:Name="tabControl" Background="White" BorderBrush="#FFFFFDFD" Height="489.101" VerticalAlignment="Bottom" Foreground="White">
+        
+            <TabItem x:Name="tabEncrypt" Header="Encrypt" FontWeight="Bold" Foreground="{x:Null}" Background="{x:Null}">
+                <Grid Background="White" Margin="0,-1.5,-2,-1.833">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="144*"/>
+                        <ColumnDefinition Width="367*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="label" Content="Select Image" Margin="30.666,11.373,31.461,0" VerticalAlignment="Top" FontWeight="Bold" d:LayoutOverrides="Width"/>
+                    <Label x:Name="label1" Content="Text to Hide" Margin="30.666,42.333,34.651,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" d:LayoutOverrides="Width"/>
+                    <TextBox x:Name="etxtImagePath" Height="23" Margin="13.833,15.373,138.334,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,0.493" Background="White" Grid.Column="1" IsReadOnly="True" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <RichTextBox x:Name="etxtMessage" Margin="13.833,46.333,138.334,0" Height="100" VerticalAlignment="Top" Grid.Column="1">
+                        <RichTextBox.Effect>
+                            <DropShadowEffect/>
+                        </RichTextBox.Effect>
+                        <FlowDocument/>
+                    </RichTextBox>
+                    <Button x:Name="eimport" Content="Import " HorizontalAlignment="Right" Margin="0,49.373,22.001,0" VerticalAlignment="Top" Width="97" FontWeight="Bold" Style="{StaticResource AccentedSquareButtonStyle}" Grid.Column="1" Click="eTextData"/>
+                    <Button x:Name="ebrowse" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Width="97" Margin="0,15.373,22.001,0" FontWeight="Bold" Style="{StaticResource AccentedSquareButtonStyle}" Grid.Column="1" Click="eImageBrowse"/>
+                    <Button x:Name="embed" Content="Embed" VerticalAlignment="Top" Margin="0,119,22,0" FontWeight="Bold" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Right" Width="97" Grid.Column="1" Click="bEmbed"/>
+                    <Image x:Name="eimage" HorizontalAlignment="Center" Height="269" Margin="16,168,6,0" VerticalAlignment="Top" Width="494" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabDecrypt" Header="Decrypt" FontWeight="Bold">
+                <Grid Background="White" Margin="0,4.667,0,-3">
+                    <Label x:Name="label3" Content="Select Image" HorizontalAlignment="Left" Margin="31.279,4.883,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="output" Margin="10,0,11,44.333" TextWrapping="Wrap" Background="#FFD6F9EE" Height="135" VerticalAlignment="Bottom" IsReadOnly="True"/>
+                    <Button x:Name="dImageBrowse" Content="Browse" VerticalAlignment="Top" Margin="0,11.923,42.666,0" HorizontalAlignment="Right" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="dIBrowse"/>
+                    <TextBox x:Name="dtxtImagePath" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="167.039,8.883,141.294,0" IsReadOnly="True">
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Button x:Name="extract" Content="Extract" VerticalAlignment="Top" Margin="0,50.206,42.666,0" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Right" Width="75" Click="messageExtract"/>
+                    <Image x:Name="dimage" HorizontalAlignment="Center" Height="175" Margin="23,83,0,0" VerticalAlignment="Top" Width="491"/>
+                    <Button x:Name="dsave" Content="Save" HorizontalAlignment="Left" Margin="224,407,0,0" VerticalAlignment="Top" Width="75" Height="28" Style="{StaticResource AccentedSquareButtonStyle}" Click="savtTextFile"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Controls:MetroWindow>
